@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FlipIt</string>
+    <string name="subtitle">make your decision</string>
+    <string name="heads">HEADS</string>
+    <string name="tails">TAILS</string>
+    <string name="flip">Flip the Coin</string>
+    <string name="flipping">Flipping…</string>
+    <string name="tap_to_flip">Tap the coin or button to flip</string>
+    <string name="result_heads">It\'s Heads!</string>
+    <string name="result_tails">It\'s Tails!</string>
+    <string name="history_title">History</string>
+    <string name="clear_history">Clear</string>
+    <string name="stats_title">Stats</string>
+    <string name="total_flips">Total Flips</string>
+    <string name="no_history">No flips yet. Give it a toss!</string>
+    <string name="heads_label">H</string>
+    <string name="tails_label">T</string>
+    <string name="cd_coin">Coin face</string>
+</resources>
