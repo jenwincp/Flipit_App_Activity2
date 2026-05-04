@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/historyItemRoot"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/history_item_height"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="@dimen/spacing_8">
+
+    <!-- Badge (H / T) -->
+    <FrameLayout
+        android:id="@+id/historyBadge"
+        android:layout_width="@dimen/history_badge_size"
+        android:layout_height="@dimen/history_badge_size"
+        android:background="@drawable/bg_history_badge_heads"
+        android:layout_marginEnd="@dimen/spacing_12">
+
+        <TextView
+            android:id="@+id/tvHistoryBadgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="H"
+            android:textColor="@color/gold_dark"
+            android:textSize="@dimen/small_text_size"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Result text -->
+    <TextView
+        android:id="@+id/tvHistoryResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Heads"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/small_text_size"
+        android:textStyle="bold" />
+
+    <!-- Flip number -->
+    <TextView
+        android:id="@+id/tvHistoryFlipNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_8"
+        android:text="#1"
+        android:textColor="@color/text_muted"
+        android:textSize="@dimen/small_text_size" />
+
+    <!-- Timestamp -->
+    <TextView
+        android:id="@+id/tvHistoryTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:00"
+        android:textColor="@color/text_muted"
+        android:textSize="@dimen/small_text_size" />
+
+</LinearLayout>
