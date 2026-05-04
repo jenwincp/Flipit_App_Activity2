@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background -->
+    <color name="bg_dark">#0F0F14</color>
+    <color name="bg_card">#1A1A24</color>
+    <color name="bg_surface">#22222F</color>
+
+    <!-- Gold accent (Heads) -->
+    <color name="gold_primary">#F5C842</color>
+    <color name="gold_light">#FFE082</color>
+    <color name="gold_dark">#C9A227</color>
+    <color name="gold_glow">#40F5C842</color>
+
+    <!-- Silver accent (Tails) -->
+    <color name="silver_primary">#B0BEC5</color>
+    <color name="silver_light">#ECEFF1</color>
+    <color name="silver_dark">#78909C</color>
+    <color name="silver_glow">#40B0BEC5</color>
+
+    <!-- Text -->
+    <color name="text_primary">#F0EFE8</color>
+    <color name="text_secondary">#888899</color>
+    <color name="text_muted">#44445A</color>
+
+    <!-- Button -->
+    <color name="btn_bg">#F5C842</color>
+    <color name="btn_text">#0F0F14</color>
+    <color name="btn_pressed">#C9A227</color>
+
+    <!-- History -->
+    <color name="history_heads_bg">#1F1A08</color>
+    <color name="history_tails_bg">#0E1218</color>
+    <color name="history_heads_text">#F5C842</color>
+    <color name="history_tails_text">#B0BEC5</color>
+
+    <!-- Stats bar -->
+    <color name="stat_heads">#F5C842</color>
+    <color name="stat_tails">#546E7A</color>
+    <color name="stat_bar_bg">#1A1A24</color>
+
+    <!-- Divider -->
+    <color name="divider">#2A2A38</color>
+</resources>
