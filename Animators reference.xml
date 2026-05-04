@@ -1,0 +1,39 @@
+<!--
+  Save as: res/animator/coin_flip_in.xml
+  First half of flip (scale X from 1 -> 0, simulating coin rotating away)
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:propertyName="scaleX"
+        android:duration="200"
+        android:valueFrom="1.0"
+        android:valueTo="0.0"
+        android:interpolator="@android:interpolator/accelerate_decelerate" />
+    <objectAnimator
+        android:propertyName="scaleY"
+        android:duration="200"
+        android:valueFrom="1.0"
+        android:valueTo="0.85"
+        android:interpolator="@android:interpolator/accelerate_decelerate" />
+</set>
+
+<!--
+  Save as: res/animator/coin_flip_out.xml
+  Second half of flip (scale X from 0 -> 1, coin lands face)
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:propertyName="scaleX"
+        android:duration="200"
+        android:valueFrom="0.0"
+        android:valueTo="1.0"
+        android:interpolator="@android:interpolator/accelerate_decelerate" />
+    <objectAnimator
+        android:propertyName="scaleY"
+        android:duration="200"
+        android:valueFrom="0.85"
+        android:valueTo="1.0"
+        android:interpolator="@android:interpolator/accelerate_decelerate" />
+</set>
