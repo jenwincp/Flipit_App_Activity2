@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/spacing_20"
+        android:paddingTop="@dimen/spacing_48"
+        android:paddingBottom="@dimen/spacing_40">
+
+        <!-- ── Header ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/spacing_40">
+
+            <TextView
+                android:id="@+id/tvAppTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:text="@string/subtitle"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/subtitle_text_size"
+                android:letterSpacing="0.12" />
+        </LinearLayout>
+
+        <!-- ── Coin ── -->
+        <FrameLayout
+            android:id="@+id/coinContainer"
+            android:layout_width="@dimen/coin_size"
+            android:layout_height="@dimen/coin_size"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/spacing_32"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_coin_glow">
+
+            <!-- Outer coin ring -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_coin_outer" />
+
+            <!-- Inner coin face -->
+            <FrameLayout
+                android:id="@+id/coinFace"
+                android:layout_width="@dimen/coin_inner_size"
+                android:layout_height="@dimen/coin_inner_size"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_coin_heads">
+
+                <LinearLayout
+                    android:id="@+id/coinContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvCoinEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🪙"
+                        android:textSize="@dimen/coin_text_size" />
+
+                    <TextView
+                        android:id="@+id/tvCoinLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_4"
+                        android:text="@string/heads"
+                        android:textColor="@color/gold_dark"
+                        android:textSize="@dimen/coin_label_size"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.15" />
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+
+        <!-- ── Result Text ── -->
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_8"
+            android:gravity="center"
+            android:text="@string/tap_to_flip"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/result_text_size"
+            android:textStyle="bold" />
+
+        <!-- ── Streak indicator ── -->
+        <TextView
+            android:id="@+id/tvStreak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_32"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/gold_primary"
+            android:textSize="@dimen/small_text_size"
+            android:letterSpacing="0.08" />
+
+        <!-- ── Flip Button ── -->
+        <Button
+            android:id="@+id/btnFlip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginBottom="@dimen/spacing_32"
+            android:background="@drawable/bg_flip_button"
+            android:text="@string/flip"
+            android:textColor="@color/btn_text"
+            android:textSize="@dimen/body_text_size"
+            android:textStyle="bold"
+            android:letterSpacing="0.06"
+            android:stateListAnimator="@null" />
+
+        <!-- ── Stats Card ── -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/statsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_16"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/bg_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <!-- Stats header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/spacing_16">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/stats_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/body_text_size"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
+
+                    <TextView
+                        android:id="@+id/tvTotalFlips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 flips"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/small_text_size" />
+                </LinearLayout>
+
+                <!-- Heads stat row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/spacing_8">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:text="Heads"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="@dimen/small_text_size"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/stat_bar_height"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="@dimen/spacing_8"
+                        android:background="@drawable/bg_stat_bar_track">
+
+                        <View
+                            android:id="@+id/statBarHeads"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_stat_bar_heads" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvHeadsCount"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="@dimen/small_text_size"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <!-- Tails stat row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
+                        android:text="Tails"
+                        android:textColor="@color/silver_primary"
+                        android:textSize="@dimen/small_text_size"
+                        android:textStyle="bold" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/stat_bar_height"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="@dimen/spacing_8"
+                        android:background="@drawable/bg_stat_bar_track">
+
+                        <View
+                            android:id="@+id/statBarTails"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_stat_bar_tails" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/tvTailsCount"
+                        android:layout_width="32dp"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/silver_primary"
+                        android:textSize="@dimen/small_text_size"
+                        android:gravity="end" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ── History Card ── -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/historyCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/bg_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <!-- History header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/spacing_16">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/history_title"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/body_text_size"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.06" />
+
+                    <TextView
+                        android:id="@+id/btnClearHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_history"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/small_text_size"
+                        android:paddingHorizontal="@dimen/spacing_12"
+                        android:paddingVertical="@dimen/spacing_4"
+                        android:background="@drawable/bg_clear_button"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <!-- Empty history state -->
+                <TextView
+                    android:id="@+id/tvNoHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_16"
+                    android:text="@string/no_history"
+                    android:textColor="@color/text_muted"
+                    android:textSize="@dimen/small_text_size"
+                    android:gravity="center" />
+
+                <!-- History items container -->
+                <LinearLayout
+                    android:id="@+id/historyContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
