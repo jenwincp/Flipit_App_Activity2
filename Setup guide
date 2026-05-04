@@ -1,0 +1,106 @@
+# FlipIt — Coin Flip App · Android Studio Setup
+
+## Project Info
+- **Language:** Java
+- **Min SDK:** 24 (Android 7.0)
+- **Package:** `com.coinflip.flipit`
+- **Theme:** Dark gold/silver — premium coin aesthetic
+
+---
+
+## Setup Steps
+
+### 1. Create New Project
+File → New → New Project → **Empty Views Activity**
+- Language: **Java**
+- Package: `com.coinflip.flipit`
+- Min SDK: 24
+
+### 2. Copy All Files
+
+```
+app/src/main/
+├── AndroidManifest.xml
+├── java/com/coinflip/flipit/
+│   └── MainActivity.java
+└── res/
+    ├── layout/
+    │   ├── activity_main.xml
+    │   └── item_history.xml
+    ├── values/
+    │   ├── colors.xml
+    │   ├── strings.xml
+    │   ├── dimens.xml
+    │   └── themes.xml
+    ├── animator/          ← create this folder
+    │   ├── coin_flip_in.xml
+    │   └── coin_flip_out.xml
+    └── drawable/
+        (see below)
+```
+
+### 3. Create Drawable Files
+
+From `DRAWABLES_REFERENCE.xml`, create each as its own file in `res/drawable/`:
+
+| Filename | Description |
+|---|---|
+| `bg_coin_glow.xml` | Gold outer glow (oval) |
+| `bg_coin_outer.xml` | Gold ring (oval) |
+| `bg_coin_heads.xml` | Gold radial gradient face |
+| `bg_coin_tails.xml` | Silver radial gradient face |
+| `bg_coin_glow_silver.xml` | Silver glow |
+| `bg_coin_outer_silver.xml` | Silver ring |
+| `bg_flip_button.xml` | Gold pill button with press state |
+| `bg_clear_button.xml` | Outline clear button |
+| `bg_stat_bar_track.xml` | Grey bar track |
+| `bg_stat_bar_heads.xml` | Gold bar fill |
+| `bg_stat_bar_tails.xml` | Grey-blue bar fill |
+| `bg_history_badge_heads.xml` | Gold circle badge |
+| `bg_history_badge_tails.xml` | Silver circle badge |
+
+### 4. Create Animator Files
+
+Create folder `res/animator/` and add two files from `ANIMATORS_REFERENCE.xml`:
+- `coin_flip_in.xml`
+- `coin_flip_out.xml`
+
+### 5. Add Gson Dependency
+
+In `app/build.gradle`:
+```groovy
+implementation 'com.google.code.gson:gson:2.10.1'
+```
+
+Then Sync Gradle.
+
+---
+
+## Features
+
+### Coin Flip
+- Tap the **coin** or the **Flip the Coin** button
+- Smooth multi-spin animation (5 half-rotations + bounce landing)
+- Gold face = Heads 🪙 · Silver face = Tails 🌙
+
+### Stats Bar
+- Live animated bars showing Heads vs Tails ratio
+- Flip count displayed in header
+
+### Streak Tracking
+- Detects consecutive same-result streaks (2+)
+- Displays "3× Heads in a row!" with matching accent color
+
+### History Log
+- Last 20 flips shown with timestamp and flip number
+- Gold/silver badges per result
+- Clear button resets everything
+
+### Persistence
+- Stats + history saved to SharedPreferences (survives app restart)
+- Gson used for serializing history list
+
+---
+
+## Design
+Dark background `#0F0F14` with gold (`#F5C842`) and silver (`#B0BEC5`) as the two outcome accents. The coin switches gold/silver gradient depending on result. Stats bars and history badges adopt the same palette.
